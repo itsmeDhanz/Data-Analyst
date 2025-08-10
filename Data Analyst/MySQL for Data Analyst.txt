@@ -1,0 +1,328 @@
+MySQL for Data Analyst
+
+SQL (Structured Query Language) adalah bahasa yang digunakan untuk mengelola dan mengakses data dalam sistem basis data relasional. Dengan SQL, kita dapat melakukan berbagai operasi seperti mengambil data, menambah data, memperbarui data, dan menghapus data dari tabel yang terstruktur.
+
+                  ##PENGOLAHAN DATA DALAM SATU TABLE##
+Basic sql/MySQL: 
+(CRUD) = - CREATE Membuat Tabel
+         - READ Menampilkan Data
+         - UPDATE Memodifikasikan column dan tipe data
+         - DELETE Mendelete table atau row data
+
+Cara Kerja SQL:
+1.Tabel :Data disimpan dalam bentuk tabel yang terdiri dari baris dan kolom. Setiap tabel memiliki struktur yang jelas, dengan kolom yang mendefinisikan jenis data yang disimpan
+
+2.Query :Kita menggunakan perintah SQL (disebut query) untuk berinteraksi dengan data. Misalnya, kita bisa menggunakan perintah SELECT untuk mengambil data dari table
+-Query yang sering di gunakan:
+
+'SELECT':Mengambil data dari tabel. conto =
+SELECT * FROM nama_tabel;
+
+'INSERT':Menambahkan data baru ke dalam tabel. conto =
+INSERT INTO nama_tabel (kolom1, kolom2) VALUES (nilai1, nilai2);
+
+'UPDATE':Memperbarui data yang sudah ada dalam tabel. conto =
+UPDATE nama_tabel SET kolom1 = nilai_baru WHERE kondisi;
+
+'DELETE':Menghapus data dari tabel. conto =
+DELETE FROM nama_tabel WHERE kondisi;
+
+'CREATE TABLE': Membuat tabel baru. conto =
+CREATE TABLE nama_tabel (
+    kolom1 TipeData,
+    kolom2 TipeData,
+    ...
+);
+
+'ALTER TABLE': Mengubah struktur tabel yang sudah ada. conto :
+ALTER TABLE nama_tabel ADD kolom_baru TipeData;
+
+'DROP TABLE': Menghapus tabel dari basis data. conto =
+DROP TABLE nama_tabel;
+
+'JOIN': Menggabungkan baris dari dua atau lebih tabel berdasarkan kondisi tertentu. conto =
+SELECT * FROM tabel1
+JOIN tabel2 ON tabel1.kolom = tabel2.kolom;
+
+'WHERE': Menentukan kondisi untuk memilih data. conto =
+SELECT * FROM nama_tabel WHERE kondisi;
+
+'ORDER BY': Mengurutkan hasil query. conto =
+SELECT * FROM nama_tabel ORDER BY kolom ASC|DESC;
+
+'GROUP BY': Mengelompokkan hasil berdasarkan satu atau lebih kolom. conto =
+SELECT kolom, COUNT(*) FROM nama_tabel GROUP BY kolom;
+
+'HAVING': Menentukan kondisi untuk kelompok yang dihasilkan oleh GROUP BY. conto =
+SELECT kolom, COUNT(*) FROM nama_tabel GROUP BY kolom HAVING COUNT(*) > nilai;
+
+'LIMIT': Membatasi jumlah hasil yang dikembalikan. conto =
+SELECT * FROM nama_tabel LIMIT 10;
+
+'DISTINCT': igunakan untuk mengambil data yang unik dari suatu kolom. Ini berguna ketika Anda ingin menghindari duplikasi dalam hasil query. conto =
+SELECT DISTINCT column_name
+FROM table_name;
+
+'IN': digunakan untuk memeriksa apakah suatu nilai ada dalam daftar nilai yang diberikan. conto =
+Misalkan Anda memiliki tabel products dan ingin mendapatkan semua produk yang termasuk dalam kategori tertentu, seperti 'Electronics', 'Clothing', dan 'Books'.
+SELECT *
+FROM products
+WHERE category IN ('Electronics', 'Clothing', 'Books');
+
+'LIKE': digunakan untuk pencarian pola dalam string. conto =
+Misalkan Anda ingin mencari semua pelanggan dalam tabel customers yang namanya dimulai dengan huruf 'J'.
+SELECT *
+FROM customers
+WHERE name LIKE 'J%';
+
+'OPERATOR LOGIKA':
+- =, >, >=, <, <=, !=
+- OR dan AND. conto =
+
+'WHERE, IN, dan LIKE': Memfilter data. conto =
+
+'OPERATOR LOGIKA':
+- =, >, >=, <, <=, !=
+- OR dan AND. conto =
+
+3.Relasi : Dalam basis data relasional, "relasi" adalah table g terdiri dari baris dan kolom. Berikut adalah beberapa komponen dan konsep penting yang ada dalam relasi:
+Tabel (Table): Struktur dasar dari relasi yang menyimpan data dalam bentuk baris dan kolom.
+
+'Baris (Row)': Juga dikenal sebagai "record" atau "tuple", setiap baris dalam tabel mewakili satu entitas atau item data.
+
+'Kolom (Column)': Juga dikenal sebagai "attribute", setiap kolom dalam tabel mewakili atribut atau karakteristik dari entitas yang disimpan dalam baris.
+
+'Kunci Utama (Primary Key)': Kolom atau kombinasi kolom yang secara unik mengidentifikasi setiap baris dalam tabel. Kunci utama tidak boleh memiliki nilai NULL.
+
+'Kunci Asing (Foreign Key)': Kolom yang digunakan untuk menghubungkan dua tabel. Kunci asing adalah referensi ke kunci utama di tabel lain, yang memungkinkan integritas referensial antara tabel.
+
+'Indeks (Index)': Struktur data yang meningkatkan kecepatan pengambilan data dari tabel. Indeks dapat dibuat pada satu atau lebih kolom untuk mempercepat query.
+
+'Relasi (Relationship)': Hubungan antara dua tabel. Ada beberapa jenis relasi:
+- One-to-One: Satu baris di tabel A berhubungan dengan satu baris di tabel B.
+- One-to-Many: Satu baris di tabel A berhubungan dengan banyak baris di tabel B.
+- Many-to-Many: Banyak baris di tabel A berhubungan dengan banyak baris di tabel B, biasanya diimplementasikan dengan tabel penghubung.
+
+'Integritas Data (Data Integrity)': Aturan yang memastikan keakuratan dan konsistensi data dalam relasi. Ini termasuk integritas entitas (kunci utama) dan integritas referensial (kunci asing).
+
+'Normalisasi (Normalization)': Proses pengorganisasian data dalam basis data untuk mengurangi redundansi dan meningkatkan integritas data. Ini melibatkan pembagian tabel menjadi tabel yang lebih kecil dan mendefinisikan hubungan antar tabel.
+
+'View': Representasi virtual dari satu atau lebih tabel. View dapat digunakan untuk menyederhanakan query atau untuk memberikan akses terbatas ke data.
+
+'Constraint': Aturan yang diterapkan pada kolom atau tabel untuk membatasi jenis data yang dapat dimasukkan. Contoh constraint termasuk NOT NULL, UNIQUE, CHECK, dan FOREIGN KEY.
+
+4. INTERMEDIATE SQL & CLEANING DATA
+
+Mengetahui type-type data. conto =
+ Tipe Data Numerik
+INT: Bilangan bulat.
+Contoh: age INT
+
+FLOAT: Bilangan pecahan dengan presisi.
+Contoh: price FLOAT
+
+DECIMAL(p, s): Bilangan pecahan dengan presisi tetap, di mana p adalah total digit dan s adalah jumlah digit setelah desimal.
+Contoh: salary DECIMAL(10, 2)
+
+ Tipe Data Karakter
+CHAR(n): String dengan panjang tetap n.
+Contoh: code CHAR(5)
+
+VARCHAR(n): String dengan panjang variabel hingga n.
+Contoh: name VARCHAR(100)
+
+TEXT: String dengan panjang yang tidak terbatas.
+Contoh: description TEXT
+
+ Tipe Data Tanggal dan Waktu
+DATE: Tanggal (tahun, bulan, hari).
+Contoh: birthdate DATE
+
+TIME: Waktu (jam, menit, detik).
+Contoh: start_time TIME
+
+DATETIME: Kombinasi tanggal dan waktu.
+Contoh: created_at DATETIME
+
+TIMESTAMP: Menyimpan informasi waktu dengan zona waktu.
+Contoh: updated_at TIMESTAMP
+
+ Tipe Data Boolean
+BOOLEAN: Menyimpan nilai benar (TRUE) atau salah (FALSE).
+Contoh: is_active BOOLEAN
+
+ Tipe Data Biner
+BLOB: Menyimpan data biner besar, seperti gambar atau file.
+Contoh: image BLOB
+
+ Tipe Data JSON
+JSON: Menyimpan data dalam format JSON.
+Contoh: data JSON
+
+'CEIL atau CEILING': digunakan untuk membulatkan angka ke atas ke bilangan bulat terdekat. Jika angka sudah merupakan bilangan bulat, maka nilai tersebut tidak akan berubah. conto =
+SELECT CEIL(4.2) AS rounded_up;   -- Hasil: 5
+SELECT CEIL(4.8) AS rounded_up;   -- Hasil: 5
+SELECT CEIL(-4.2) AS rounded_up;  -- Hasil: -4
+SELECT CEIL(-4.8) AS rounded_up;  -- Hasil: -4
+
+'FLOOR': digunakan untuk membulatkan angka ke bawah ke bilangan bulat terdekat. Jika angka sudah merupakan bilangan bulat, maka nilai tersebut tidak akan berubah.conto =
+SELECT FLOOR(4.2) AS rounded_down;   -- Hasil: 4
+SELECT FLOOR(4.8) AS rounded_down;   -- Hasil: 4
+SELECT FLOOR(-4.2) AS rounded_down;  -- Hasil: -5
+SELECT FLOOR(-4.8) AS rounded_down;  -- Hasil: -5
+
+Contoh Penggunaan Tipe Data dalam Tabel
+Berikut adalah contoh pembuatan tabel dengan berbagai tipe data:
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    age INT,
+    salary DECIMAL(10, 2),
+    birthdate DATE,
+    is_active BOOLEAN,
+    profile_picture BLOB,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+Memanipulasi Karakter:
+- Mengubah format huruf (UPPER,LOWER)
+- Mengubah suatu nilai di dalam karakter (REPLACE)
+- Merapikan spasi yang berlebihan (TRIM)
+- Menyatukan beberapa character (CONCAT)
+- Mengukur Panjang (length)
+- Conditional statement. operasi jika --> maka (CASE WHEN)
+- Menghitung statistika sederhana :
+  MAX, MIN, COUNT, AVG, MEDIAN, MOD Dan beberapa syntax lainnya.
+
+Window Function : Fungsi jendela (window functions) dalam SQL adalah fungsi yang memungkinkan Anda untuk melakukan perhitungan agregat dan analisis data dalam konteks baris yang berdekatan, tanpa mengelompokkan hasilnya menjadi satu baris. Fungsi ini sangat berguna untuk analisis data yang memerlukan informasi dari baris lain dalam hasil query. dan kita bisa lebih fleksibel mengatur Aggregation
+
+Karakteristik Window Function
+
+- Tidak Mengelompokkan Hasil: Berbeda dengan fungsi agregat biasa (seperti SUM, AVG, dll.) yang mengelompokkan hasil, fungsi jendela mempertahankan semua baris dalam hasil query.
+- Menggunakan Klausa OVER: Fungsi jendela biasanya diikuti oleh klausa OVER, yang menentukan jendela (atau subset) dari data yang akan digunakan untuk perhitungan.conto =
+function_name(column_name) OVER (
+    [PARTITION BY partition_expression]
+    [ORDER BY order_expression]
+)
+PARTITION BY: Membagi hasil menjadi kelompok berdasarkan kolom tertentu.
+ORDER BY: Menentukan urutan baris dalam setiap partisi.
+
+- beberapa contoh penggunaan windows function :
+
+'ROW_NUMBER()'
+ Fungsi ini memberikan nomor urut untuk setiap baris dalam partisi.
+ SELECT 
+    employee_id,
+    name,
+    department,
+    ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC) AS rank
+FROM employees;
+
+Dalam contoh ini, setiap karyawan akan diberi nomor urut berdasarkan gaji mereka dalam departemen yang sama.
+
+'RANK()'
+Fungsi ini memberikan peringkat untuk setiap baris dalam partisi, dengan peringkat yang sama untuk nilai yang sama.
+SELECT 
+    employee_id,
+    name,
+    salary,
+    RANK() OVER (ORDER BY salary DESC) AS salary_rank
+FROM employees;
+Di sini, karyawan dengan gaji yang sama akan mendapatkan peringkat yang sama, dan peringkat berikutnya akan dilewati.
+
+SUM()
+Fungsi agregat ini dapat digunakan sebagai fungsi jendela untuk menghitung total kumulatif.
+SELECT 
+    order_id,
+    order_date,
+    amount,
+    SUM(amount) OVER (ORDER BY order_date) AS cumulative_total
+FROM orders;
+Dalam contoh ini, 'cumulative_total' akan menunjukkan total kumulatif dari 'amount' berdasarkan tanggal pesanan.
+
+KESIMPULAN :
+Fungsi jendela dalam SQL sangat bermanfaat untuk menganalisis data dengan cara yang lebih mendalam. Dengan fungsi ini, Anda dapat melakukan perhitungan yang kompleks tanpa menghilangkan informasi dari setiap baris data. Ini memungkinkan Anda untuk mendapatkan wawasan yang lebih baik dan lebih kaya dari data yang Anda miliki, sehingga Anda dapat membuat keputusan yang lebih tepat berdasarkan analisis tersebut. Fungsi jendela membantu Anda melihat pola dan tren dalam data dengan cara yang lebih jelas dan terperinci.
+
+               ##PENGOLAHAN DATA DALAM MULTIPLE TABEL##
+Pengolahan data dalam multiple tabel merujuk pada proses mengelola dan menganalisis data yang tersebar di lebih dari satu tabel dalam sebuah basis data. Dalam sistem basis data relasional, data sering kali diorganisir ke dalam tabel-tabel yang berbeda untuk menjaga keteraturan dan efisiensi. Setiap tabel biasanya menyimpan informasi yang spesifik, dan hubungan antar tabel ini memungkinkan kita untuk mengaitkan data yang relevan.
+
+CONTOH PENGGUNAAN
+Misalnya, dalam sebuah sistem manajemen sekolah, kita mungkin memiliki tabel 'Siswa', 'Kelas', dan 'Nilai'. Tabel 'Siswa' menyimpan informasi tentang siswa, tabel 'Kelas' menyimpan informasi tentang kelas yang ada, dan tabel 'Nilai' menyimpan nilai yang diperoleh siswa di setiap kelas.
+
+Dengan menggunakan pengolahan data dalam multiple tabel, kita dapat melakukan berbagai operasi, seperti:
+- Mengambil informasi siswa beserta kelas dan nilai mereka.
+- Menghitung rata-rata nilai siswa dalam suatu kelas.
+- Mengetahui siswa mana yang memiliki nilai tertinggi di setiap kelas.
+
+PENGOLAHAN DATA DALAM MULTIPLE TABEL: 'JOIN' DAN 'UNION'
+Dalam basis data relasional, data sering terpecah ke dalam beberapa tabel untuk efisiensi dan keteraturan. Agar dapat menganalisis data secara menyeluruh, kita perlu menggabungkan data dari tabel-tabel tersebut. Berikut penjelasan tentang JOIN dan UNION, dua teknik utama untuk mengolah data dari multiple tabel.
+
+- JOIN (Pengunaan Tabel Berbasis Relasi)
+JOIN digunakan untuk menggabungkan baris dari dua atau lebih tabel berdasarkan kondisi hubungan (relationship) antara kolom-kolomnya.
+JENIS JENIS JOIN
+1. INNER JOIN
+-Menggabungkan hanya baris yang memiliki nilai cocok di kedua tabel.
+-Contoh: Mengambil daftar siswa yang sudah memiliki nilai.
+SELECT siswa.nama, nilai.mata_pelajaran, nilai.nilai
+FROM siswa
+INNER JOIN nilai ON siswa.id = nilai.siswa_id; (Hasil: Hanya siswa yang memiliki nilai muncul)
+
+2. LEFT JOIN (LEFT OUTER JOIN)
+- Mengambil semua baris dari tabel kiri (tabel pertama) dan baris yang cocok dari tabel kanan.
+- Jika tidak ada kecocokan, kolom dari tabel kanan bernilai 'NULL'.
+SELECT siswa.nama, nilai.mata_pelajaran, nilai.nilai
+FROM siswa
+LEFT JOIN nilai ON siswa.id = nilai.siswa_id;
+(Hasil: Semua siswa muncul, termasuk yang tidak punya nilai)
+
+3. RIGHT JOIN (atau RIGHT OUTER JOIN)
+- Kebalikan dari LEFT JOIN. Mengambil semua baris dari tabel kanan dan yang cocok dari tabel kiri.
+SELECT siswa.nama, nilai.mata_pelajaran, nilai.nilai
+FROM siswa
+RIGHT JOIN nilai ON siswa.id = nilai.siswa_id;
+(Hasil: Semua nilai muncul, termasuk jika tidak ada datanya di tabel siswa)
+
+4.FULL JOIN (atau FULL OUTER JOIN)
+- Menggabungkan semua baris dari kedua tabel, dengan NULL jika tidak ada kecocokan.
+(Berguna untuk analisis lengkap, tetapi tidak semua database mendukung.)
+
+- UNION (PENGGABUNGAN HASIL QUERY VERTIKAL)
+UNION digunakan untuk menggabungkan hasil dari dua atau lebih query secara vertikal (menumpuk baris). Syaratnya:
+
+1. Jumlah kolom harus sama.
+2. Tipe data kolom harus kompatibel.
+3. UNION otomatis menghapus duplikat, sedangkan UNION ALL tetap mempertahankannya.
+Contoh Penggunaan
+Contoh: Menggabungkan daftar produk dari dua kategori berbeda:
+
+-- Query 1: Produk elektronik
+SELECT nama_produk, harga, 'Elektronik' AS kategori
+FROM produk_elektronik
+
+UNION
+
+-- Query 2: Produk pakaian
+SELECT nama_produk, harga, 'Pakaian' AS kategori
+FROM produk_pakaian;
+(Hasil: Daftar produk dari kedua kategori dalam satu tabel hasil)
+
+Perbedaan UNION vs UNION ALL:
+
+- UNION menghapus duplikat (lebih lambat).
+- UNION ALL tidak mengurutkan/menghapus duplikat (lebih cepat).
+
+MANFAAT 
+Pengolahan data dalam multiple tabel memungkinkan kita untuk:
+- Menghindari Redundansi: Dengan memisahkan data ke dalam tabel yang berbeda, kita mengurangi duplikasi informasi.
+- Meningkatkan Kecepatan Akses: Data yang terorganisir dengan baik dapat diakses dan diproses lebih cepat.
+- Memudahkan Pemeliharaan: Jika ada perubahan data, kita hanya perlu memperbarui satu tabel tanpa mempengaruhi tabel lain.
+
+CATATAN PENTING:
+- JOIN bekerja berdasarkan kondisi relasi (misal: 'ON siswa.id = nilai.siswa_id').
+- UNION bekerja dengan menyatukan struktur kolom yang mirip.
+
+KESIMPULAN
+Secara keseluruhan, pengolahan data dalam multiple tabel adalah cara yang efisien untuk mengelola informasi yang kompleks. Dengan memanfaatkan hubungan antar tabel, kita dapat melakukan analisis yang lebih mendalam dan mendapatkan wawasan yang lebih baik dari data yang kita miliki.
+
+                       ##SUMMARY##
+(Introduction Database dan SQL ---> Basic SQL ---> Intermediate dan Cleaning Data SQL ---> Group Aggregation ---> Windows Function ---> Design Database dan ERD ---> Working with Multiple tabel)

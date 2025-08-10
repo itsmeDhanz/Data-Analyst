@@ -1,0 +1,39 @@
+step untuk menjadi data analis
+excel :
+ - processing data
+ - kalkulasi data
+ - visualisasi data
+kekurangan di excel tidak di rokemendasikan untuk pengolahan data berskala besar.
+
+Bahasa pemograman data analis ada dua yaitu:
+-Python
+-R
+disarankan menggunakan python karena support data analis dan data sience sebagai data proses machine learning dan deep learning, support data enginer untuk memprosesing data, cleaning data, schezule data dan juga web.
+jika ingin belajar cepat di sarankan ke web belajarpython.com
+
+Database SQL (struktur query language)
+Bahasa khusus mengakses dan mengolah data-data biasa nya di gunakan untuk mengolah database yang relasional. jika ingin belajar cepat ada di www.w3schools.com.
+
+Statistik atau statistika
+sebuah ilmu yang mempelajari bagaimana mencari,merencanakan,mengumpulkan,menganalisis dan juga menginterpretasikan data, statistik ini merupakan ilmu yang mempelajari tentang data.
+step belajar statistik 
+-statistika deskriptif
+-statistika probalilitas dasar 
+-statistika inferensi
+
+Data visualisasi tools:
+-Google data studio
+-Tableau
+-Microsoft power Bi
+pilih salah satu yang menurutmu mudah dan gampang untuk di pahami
+
+rangkuman step belajar:
+1.excel
+2.python
+3.mysql
+4.google data studio
+
+setelah semuanya selesai langsung buat studi kasus atau project data analysis dan kalau bisa ke data science
+
+Job desc data analyst
+seorang data analis adalah menjadi strategi partner untuk team marketing,oprasional bahkan untuk team bisnis dimana seorang data analisis akan menganalisis data dan dari data analisis ini akan diberikan insight/ide ke fitur2 baru yang sudah ada,campaign baru ataupun bisnis baru yang sedang di lakukan atau mungkin strategi kondisi bisnis sekarang misalkan apakah perusahaan sedang mangalami peningkatan jika iya insight atau rekomendasi apa yang bisa di berikan ke team bisnis dan begitu juga Ketika perusahaan mengalami penurunan, hasil analisis akan di berikan ke CEO,Manajer Tim Marketing, dan Stakeholder nanti team tersebut akan menggunakan strategi seorang data analis sebagai landasan strategi perusahaan ke depan nya
